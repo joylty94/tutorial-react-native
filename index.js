@@ -3,6 +3,7 @@ import { AppRegistry } from 'react-native';
 // import Hello from './components/Hello'
 // import MultipleGreetings from './components/MultipleGreetings'
 // import TextBlink from './components/TextBlink'
-import Style from './components/Style'
+// import Style from './components/Style'
+import FlexDimansion from './components/FlexDimansion'
 
-AppRegistry.registerComponent('native_tutorial', () => Style);
+AppRegistry.registerComponent('native_tutorial', () => FlexDimansion);
