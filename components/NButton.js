@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Alert, View, Button, Text } from "react-native";
+import { Alert, View, Text } from "react-native";
+import Button from "react-native-button";
 
 export default class NButton extends Component {
     _onPressButton = () => {
@@ -12,9 +13,15 @@ export default class NButton extends Component {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Button onPress={this._onPressButton}
-                title="button"
-                color="red">
+                <Button style={{
+                    fontSize: 20,
+                    color:"white",
+                    backgroundColor:"red",
+                    padding:10,
+                    borderRadius:10
+                }} 
+                onPress={this._onPressButton}>
+                Button
                 </Button>
             </View>
         );
