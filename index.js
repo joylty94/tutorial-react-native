@@ -6,6 +6,7 @@ import { AppRegistry } from 'react-native';
 // import Style from './components/Style'
 // import FlexDimansion from './components/FlexDimansion'
 // import FlexExample from './components/FlexExample'
-import TextInputs from './components/TextInputs'
+// import TextInputs from './components/TextInputs'
+import NButton from './components/NButton'
 
-AppRegistry.registerComponent('native_tutorial', () => TextInputs);
+AppRegistry.registerComponent('native_tutorial', () => NButton);
