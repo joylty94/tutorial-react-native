@@ -9,6 +9,7 @@ import { AppRegistry } from 'react-native';
 // import TextInputs from './components/TextInputs'
 // import NButton from './components/NButton'
 // import Touches from './components/Touches'
-import VerticalScrollView from './components/VerticalScrollView'
+// import VerticalScrollView from './components/VerticalScrollView'
+import HorizontalScrollView from './components/HorizontalScrollView'
 
-AppRegistry.registerComponent('native_tutorial', () => VerticalScrollView);
+AppRegistry.registerComponent('native_tutorial', () => HorizontalScrollView);
