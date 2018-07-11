@@ -8,6 +8,7 @@ import { AppRegistry } from 'react-native';
 // import FlexExample from './components/FlexExample'
 // import TextInputs from './components/TextInputs'
 // import NButton from './components/NButton'
-import Touches from './components/Touches'
+// import Touches from './components/Touches'
+import VerticalScrollView from './components/VerticalScrollView'
 
-AppRegistry.registerComponent('native_tutorial', () => Touches);
+AppRegistry.registerComponent('native_tutorial', () => VerticalScrollView);
