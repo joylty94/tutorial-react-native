@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight } from 'react-native';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout';
 
@@ -91,10 +91,30 @@ export default class BasicFlatList extends Component {
         this.setState({
             deletedRowKey : deleteKey,
         })
+    }
+    _onPressAdd() {
+        alert("You add Item ?");
     } 
     render() {
         return(
-            <View style={{ flex:1, marginTop:22 }}>
+            <View style={{ flex:1, marginTop: Platform.OS === 'ios' ? 34 : 0 }}>
+                <View style={{
+                    backgroundColor : 'tomato',
+                    height : 64,
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    }}>
+                    <TouchableHighlight
+                        style={{marginRight:10}}
+                        underlayColor='tomato'
+                        onPress={this._onPressAdd}>
+                        <Image 
+                            source={require('../images/comma.png')}
+                            style={{width:40, height:45}}>
+                        </Image>
+                    </TouchableHighlight>
+                </View>
                 <FlatList 
                     data={flatListData}
                     renderItem={({item, index})=>{
