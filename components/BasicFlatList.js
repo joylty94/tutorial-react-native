@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHighlight } from 'react-native';
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout';
+import AddModal from './AddModal';
 
 const styles = StyleSheet.create({
     flatListItem: {
@@ -86,14 +87,19 @@ export default class BasicFlatList extends Component {
         this.state = ({
             deletedRowKey : null,
         })
+        this._onPressAdd = this._onPressAdd.bind(this); // 기본 플랫폼인 BasicFlatList에 this로 맞춰준다.
     }
-    refreshFlatList = (deleteKey) => {
-        this.setState({
-            deletedRowKey : deleteKey,
-        })
+    refreshFlatList = (activeKey) => {
+        this.setState((prevState) => {
+            return {
+                deletedRowKey: activeKey
+            };
+        });
+        this.refs.flatList.scrollToEnd();
     }
     _onPressAdd() {
-        alert("You add Item ?");
+        // alert("You add Item ?");
+        this.refs.addModal.showAddModal();
     } 
     render() {
         return(
@@ -116,17 +122,19 @@ export default class BasicFlatList extends Component {
                     </TouchableHighlight>
                 </View>
                 <FlatList 
+                    ref={"flatList"}
                     data={flatListData}
                     renderItem={({item, index})=>{
                         // console.log(`${JSON.stringify(item)}, ${index}`)
                         return(
                             <FlatListItem item={item} index={index} refreshFlatList={this.refreshFlatList}>
-
                             </FlatListItem>
                         )
                     }}
                 >
                 </FlatList>
+                <AddModal ref={'addModal'} refreshFlatList={this.refreshFlatList}>
+                </AddModal>
             </View>
         )
     }
