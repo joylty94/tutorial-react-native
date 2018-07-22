@@ -13,18 +13,26 @@ const styles = StyleSheet.create({
 class FlatListItem extends Component {
     render() {
         return (
+            <View style={{ flex: 1, flexDirection: "column"}}>
             <View style={{
                 flex: 1,
-                backgroundColor : this.props.index % 2 === 0 ? "mediumseagreen" : "tomato" 
+                flexDirection: "row",
+                backgroundColor : "mediumseagreen",
             }}>
             <Image 
                 source={{uri: this.props.item.imgURL}}
                 style={{ width: 100, height: 100, margin : 5}}>
             </Image>
-            <View>
+            <View style={{
+                flex: 1,
+                flexDirection:'column',
+                height: 100,
+            }}>
                 <Text style={styles.flatListItem}>{this.props.item.name}</Text>
                 <Text style={styles.flatListItem}>{this.props.item.age}</Text>
             </View>
+            </View>
+            <View style={{backgroundColor: 'white', height: 1}}></View>
             </View>
         )
     }
