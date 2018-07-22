@@ -6,14 +6,17 @@ const styles = StyleSheet.create({
     flatListItem: {
         fontSize : 16,
         padding : 10,
-        color : 'black'
+        color : 'white'
     }
 }) 
 
 class FlatListItem extends Component {
     render() {
         return (
-            <View style={{flax: 1}}>
+            <View style={{
+                flax: 1,
+                backgroundColor : this.props.index % 2 === 0 ? "mediumseagreen" : "tomato" 
+            }}>
             <Text style={styles.flatListItem}>{this.props.item.name}</Text>
             <Text style={styles.flatListItem}>{this.props.item.age}</Text>
             </View>
@@ -36,7 +39,6 @@ export default class BasicFlatList extends Component {
                         )
                     }}
                 >
-
                 </FlatList>
             </View>
         )
