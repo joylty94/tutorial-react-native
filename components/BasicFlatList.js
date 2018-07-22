@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image } from 'react-native';
 import flatListData from '../data/flatListData';
 
 const styles = StyleSheet.create({
@@ -14,11 +14,17 @@ class FlatListItem extends Component {
     render() {
         return (
             <View style={{
-                flax: 1,
+                flex: 1,
                 backgroundColor : this.props.index % 2 === 0 ? "mediumseagreen" : "tomato" 
             }}>
-            <Text style={styles.flatListItem}>{this.props.item.name}</Text>
-            <Text style={styles.flatListItem}>{this.props.item.age}</Text>
+            <Image 
+                source={{uri: this.props.item.imgURL}}
+                style={{ width: 100, height: 100, margin : 5}}>
+            </Image>
+            <View>
+                <Text style={styles.flatListItem}>{this.props.item.name}</Text>
+                <Text style={styles.flatListItem}>{this.props.item.age}</Text>
+            </View>
             </View>
         )
     }
@@ -27,7 +33,7 @@ class FlatListItem extends Component {
 export default class BasicFlatList extends Component {
     render() {
         return(
-            <View style={{ flax:1, marginTop:22 }}>
+            <View style={{ flex:1, marginTop:22 }}>
                 <FlatList 
                     data={flatListData}
                     renderItem={({item, index})=>{
