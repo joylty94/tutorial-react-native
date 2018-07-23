@@ -95,7 +95,7 @@ export default class EditModal extends Component {
                         }
                         flatListData[foundIndex].name = this.state.newName;
                         flatListData[foundIndex].age = this.state.newAge;
-
+                        this.state.flatListItem.refreshFlatListItem()
                         this.refs.myModal.close();
                     }}
                 >

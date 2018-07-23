@@ -20,7 +20,7 @@ class FlatListItem extends Component {
             activeRowKey: null,
         }
     }
-    refreshFlatList = () => {
+    refreshFlatListItem = () => {
         this.setState((prevState) => {
             return {
                 numberOfRefresh: prevState.numberOfRefresh + 1
