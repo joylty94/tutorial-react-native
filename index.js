@@ -11,6 +11,7 @@ import { AppRegistry } from 'react-native';
 // import Touches from './components/Touches'
 // import VerticalScrollView from './components/VerticalScrollView'
 // import HorizontalScrollView from './components/HorizontalScrollView'
-import BasicFlatList from './components/BasicFlatList'
+// import BasicFlatList from './components/BasicFlatList'
+import HorizontalFlatList from './components/HorizontalFlatList'
 
-AppRegistry.registerComponent('native_tutorial', () => BasicFlatList);
+AppRegistry.registerComponent('native_tutorial', () => HorizontalFlatList);
