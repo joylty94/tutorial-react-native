@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, Text, View, Image, Alert, Platform, TouchableHigh
 import flatListData from '../data/flatListData';
 import Swipeout from 'react-native-swipeout';
 import AddModal from './AddModal';
+import EditModal from './EditModal';
 
 const styles = StyleSheet.create({
     flatListItem: {
@@ -19,6 +20,13 @@ class FlatListItem extends Component {
             activeRowKey: null,
         }
     }
+    refreshFlatList = () => {
+        this.setState((prevState) => {
+            return {
+                numberOfRefresh: prevState.numberOfRefresh + 1
+            };
+        });
+    }
     render() {
         const swipeoutSetting ={
             autoClose : true,
@@ -31,6 +39,13 @@ class FlatListItem extends Component {
                 this.setState({ activeRowKey : this.props.item.key });
             },
             right : [
+                {
+                    onPress : () => {
+                        // alert("Update");
+                        this.props.parentFlatList.refs.editModal.showEditModal(flatListData[this.props.index], this);
+                    },
+                    text: 'Edit', type: 'primary'
+                },
                 {
                     onPress : () =>{
                         const deletingRow = this.props.activeRowKey;
@@ -135,6 +150,8 @@ export default class BasicFlatList extends Component {
                 </FlatList>
                 <AddModal ref={'addModal'} refreshFlatList={this.refreshFlatList}>
                 </AddModal>
+                <EditModal ref={'editModal'} parentFlatList={this}>
+                </EditModal>
             </View>
         )
     }
